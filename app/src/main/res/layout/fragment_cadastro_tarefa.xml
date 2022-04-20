@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.CadastroTarefaFragment"
+    android:background="@color/limao_claro">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="40dp"
+            android:text="Cadastrar Tarefa"
+            android:textAlignment="center"
+            android:textSize="80px"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/edit_titulo"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:background="@drawable/border"
+            android:hint="Titulo da Tarefa"
+            android:inputType="textMultiLine"
+            android:lines="8"
+            android:maxLines="10"
+            android:minLines="6"
+            android:scrollbars="vertical"
+            android:singleLine="false"
+            android:textAlignment="center"
+            android:textColorHint="@color/black_piano"
+            app:layout_constraintBottom_toTopOf="@+id/edit_descricao"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.503"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.656" />
+
+        <EditText
+            android:id="@+id/edit_descricao"
+            android:gravity="top"
+            android:textAlignment="center"
+            android:layout_width="250dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="220dp"
+            android:background="@drawable/border"
+            android:inputType="textCapSentences|textMultiLine"
+            android:lines="4"
+            android:hint="Descrição"
+            android:textColorHint="@color/black_piano"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.503"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btData"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="72dp"
+            android:background="@drawable/border"
+            android:text="Data Prevista"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edit_descricao" />
+
+        <Button
+            android:id="@+id/btSalvar"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/border"
+            android:text="Salvar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btData"
+            app:layout_constraintVertical_bias="0.02" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

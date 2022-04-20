@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/cadastrarTarefaFragment">
+
+
+    <fragment
+        android:id="@+id/principalFragment"
+        android:name="br.com.mtwcorporation.app.todolist.fragment.PrincipalFragment"
+        android:label="Principal"
+        tools:layout="@layout/fragment_principal">
+        <action
+            android:id="@+id/action_principalFragment_to_cadastroTarefaFragment"
+            app:destination="@id/cadastrarTarefaFragment"
+            />
+        <action
+            android:id="@+id/action_principalFragment_to_infoTarefaFragment"
+            app:destination="@id/infoTarefa"
+            />
+    </fragment>
+
+    <fragment
+        android:id="@+id/cadastrarTarefaFragment"
+        android:name="br.com.mtwcorporation.app.todolist.fragment.CadastroTarefaFragment"
+        android:label="Cadastrar Tarefa"
+        tools:layout="@layout/fragment_cadastro_tarefa">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/infoTarefa"
+        android:name="br.com.mtwcorporation.app.todolist.fragment.CadastroTarefaFragment"
+        android:label="Cadastrar Tarefa"
+        tools:layout="@layout/fragment_cadastro_tarefa">
+        <action
+            android:id="@+id/action_infoFragment_to_cadastrarSubTarefaFragment"
+            app:destination="@id/cadastrarSubTarefa"
+            />
+    </fragment>
+
+    <fragment
+        android:id="@+id/cadastrarSubTarefa"
+        android:name="br.com.mtwcorporation.app.todolist.fragment.CadastroTarefaFragment"
+        android:label="Cadastrar Tarefa"
+        tools:layout="@layout/fragment_cadastro_tarefa">
+
+    </fragment>
+
+
+
+
+</navigation>
