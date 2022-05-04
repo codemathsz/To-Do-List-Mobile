@@ -3,6 +3,8 @@ package br.com.mtwcorporation.app.todolist.model;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.util.Calendar;
+
 import lombok.Data;
 
 @Data
@@ -63,5 +65,14 @@ public class Tarefa {
 
     public void setDataFinalizada(long dataFinalizada) {
         this.dataFinalizada = dataFinalizada;
+    }
+
+    public boolean isConcluida(){
+        return dataFinalizada != 0;
+    }
+
+    public boolean isAtraso(){
+
+        return Calendar.getInstance().getTimeInMillis() > getDataPrevista();
     }
 }
