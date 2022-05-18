@@ -4,4 +4,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="titulo_tarefa_vazio">O titulo da tarefa não pode ser vazio</string>
     <string name="data_prevista_vazia">O data prevista não pode ser vazia</string>
+    <string name="origem_imagem">Qual a origem da imagem?</string>
+    <string name="camera">Câmera</string>
+    <string name="galeria">Galeria</string>
 </resources>

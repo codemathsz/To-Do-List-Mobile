@@ -31,9 +31,9 @@
 
     <fragment
         android:id="@+id/infoTarefa"
-        android:name="br.com.mtwcorporation.app.todolist.fragment.CadastroTarefaFragment"
-        android:label="Cadastrar Tarefa"
-        tools:layout="@layout/fragment_cadastro_tarefa">
+        android:name="br.com.mtwcorporation.app.todolist.fragment.InfoTarefaFragment"
+        android:label="Info Tarefa"
+        tools:layout="@layout/fragment_info_tarefa">
         <action
             android:id="@+id/action_infoFragment_to_cadastrarSubTarefaFragment"
             app:destination="@id/cadastrarSubTarefa"
@@ -42,9 +42,9 @@
 
     <fragment
         android:id="@+id/cadastrarSubTarefa"
-        android:name="br.com.mtwcorporation.app.todolist.fragment.CadastroTarefaFragment"
+        android:name="br.com.mtwcorporation.app.todolist.fragment.CadastroSubtarefaFragment"
         android:label="Cadastrar Tarefa"
-        tools:layout="@layout/fragment_cadastro_tarefa">
+        tools:layout="@layout/fragment_cadastro_subtarefa">
 
     </fragment>
 

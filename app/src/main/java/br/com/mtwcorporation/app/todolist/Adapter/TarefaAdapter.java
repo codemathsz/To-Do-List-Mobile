@@ -1,6 +1,7 @@
 package br.com.mtwcorporation.app.todolist.Adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
 
@@ -22,13 +24,18 @@ public class TarefaAdapter extends RecyclerView.Adapter<TarefaAdapter.TarefaView
     private List<Tarefa> tarefas;
     // variável para Context
     private Context context;
+    // VARIAVEL PARA O LISTENER
+    private  OnTarefaClickListener listenerTarefa;
 
     // contrutor que recebe os parâmetros para o adapter
-    public TarefaAdapter(List<Tarefa> lista, Context contexto){
+    public TarefaAdapter(List<Tarefa> lista, Context contexto, OnTarefaClickListener listenerTarefa){
 
         this.tarefas = lista;
         this.context = contexto;
+        this.listenerTarefa = listenerTarefa;
     }
+
+
 
     @NonNull
     @Override
@@ -47,12 +54,13 @@ public class TarefaAdapter extends RecyclerView.Adapter<TarefaAdapter.TarefaView
 
         // obter a tarefa através da position
         Tarefa t = tarefas.get(position);
-
-
-
-
         // transportar as informações da tarefa para o ViewHolder
         holder.tvTitulo.setText(t.getTitulo());
+        // formatar a data
+        SimpleDateFormat  simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        holder.tvData.setText(simpleDateFormat.format(t.getDataPrevista()));
+
+
         // verifica se
         if (t.isConcluida()){
             holder.tvStatus.setText("Finalizada");
@@ -63,6 +71,12 @@ public class TarefaAdapter extends RecyclerView.Adapter<TarefaAdapter.TarefaView
         else{
             holder.tvStatus.setText("Em aberto");
         }
+
+        // IMPLEMENTA O CLICK NA TAREFA
+        holder.itemView.setOnClickListener(v -> {
+            Log.w("CLICOU", "CLICOU NA POSIÇÃO "+position);
+            listenerTarefa.onClick(v,t);
+        });
 
     }
 
@@ -76,8 +90,9 @@ public class TarefaAdapter extends RecyclerView.Adapter<TarefaAdapter.TarefaView
 
     // classe interna
     class TarefaViewHolder extends RecyclerView.ViewHolder {
+
         // variáveis para os componentes do layout
-        TextView tvTitulo,tvStatus;
+        TextView tvTitulo,tvStatus,tvData;
         ImageView imgTarefa;
 
         public TarefaViewHolder(@NonNull View itemView) {
@@ -87,6 +102,13 @@ public class TarefaAdapter extends RecyclerView.Adapter<TarefaAdapter.TarefaView
             tvTitulo = itemView.findViewById(R.id.tvTitulo);
             tvStatus = itemView.findViewById(R.id.tvStatus);
             imgTarefa = itemView.findViewById(R.id.img_tarefa);
+            tvData = itemView.findViewById(R.id.tvData);
         }
+    }
+
+    // INTERFACE PARA O CLICK DA TAREFA
+    public interface OnTarefaClickListener{
+
+        void onClick(View v, Tarefa t);
     }
 }
